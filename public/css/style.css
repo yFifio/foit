@@ -1,0 +1,362 @@
+/* --- Resets Globais e Base --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  /* Nova fonte monoespaçada e descolada */
+  font-family: "Space Mono", monospace;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  /* Layout muito mais largo que o anterior */
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px; /* Mais preenchimento lateral */
+}
+
+/* --- 1. Cabeçalho (Novo) --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #333;
+}
+
+.header-left,
+.header-right {
+  flex: 1; /* Ocupa espaço igual */
+}
+
+.header-center {
+  flex: 2; /* Mais espaço para o logo */
+  text-align: center;
+}
+
+.site-logo img {
+  max-width: 120px; /* Mantém o logo pequeno */
+}
+
+.header-icons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 25px; /* Espaço entre os ícones */
+}
+
+.header-icons a {
+  font-size: 1.5rem; /* Tamanho dos ícones (pode usar <img> ou fontes de ícone) */
+}
+
+.welcome-message {
+  font-size: 1rem;
+  color: #ccc;
+  white-space: nowrap; /* Impede que o nome quebre a linha */
+}
+
+/* --- 2. Layout Principal (Novo) --- */
+.main-layout {
+  display: grid;
+  /* Coluna da sidebar com 220px, o resto para os produtos */
+  grid-template-columns: 220px 1fr;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+/* --- 3. Sidebar de Navegação (Nova) --- */
+.sidebar-nav h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.sidebar-nav ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar-nav ul li a {
+  font-size: 1.1rem;
+}
+
+/* Estilos para o submenu de marcas */
+.sidebar-nav .submenu {
+  max-height: 0; /* Começa "fechado" */
+  overflow: hidden; /* Esconde o conteúdo que transborda */
+  opacity: 0; /* Começa invisível */
+  padding-left: 15px; /* Indentação para parecer um submenu */
+  margin-top: 0; /* Remove a margem quando fechado */
+  transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out,
+    margin-top 0.5s ease-in-out; /* Animação suave */
+  will-change: max-height; /* Otimização para o navegador */
+}
+
+.sidebar-nav .submenu.visible {
+  max-height: 500px; /* Uma altura máxima grande o suficiente para o conteúdo */
+  opacity: 1; /* Torna visível */
+  margin-top: 8px; /* Adiciona a margem de volta quando aberto */
+}
+
+.sidebar-nav .submenu li a {
+  font-size: 1rem; /* Fonte um pouco menor */
+  opacity: 0.8; /* Levemente mais apagado que os itens principais */
+}
+
+/* --- 4. Grade de Produtos (Atualizada) --- */
+.product-listing h2 {
+  /* Remove o h2 centralizado do estilo antigo */
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.product-grid {
+  display: grid;
+  /* Como na imagem: 7 colunas. */
+  grid-template-columns: repeat(7, 1fr);
+  gap: 15px;
+}
+
+/* NOTA: 7 colunas não é responsivo. 
+   Para um layout responsivo, use:
+   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+*/
+
+.product-card {
+  /* O card antigo tinha borda, este não parece ter */
+  text-align: left;
+}
+
+.product-card a {
+  display: block;
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px; /* Altura fixa para alinhar */
+  object-fit: cover;
+  margin-bottom: 8px;
+  background-color: #111;
+}
+
+.product-card-info .product-name {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 1rem;
+}
+.product-card-info .product-price {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* --- 5. Rodapé (Novo) --- */
+footer {
+  border-top: 1px solid #333;
+  margin-top: 60px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.newsletter-form {
+  margin-bottom: 30px;
+}
+.newsletter-form h3 {
+  margin-bottom: 15px;
+}
+.newsletter-form input {
+  background-color: #000;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 10px;
+  width: 300px;
+}
+
+.footer-socials {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.footer-socials a img {
+  width: 40px; /* Tamanho dos ícones sociais */
+  height: 40px;
+}
+
+.footer-logo {
+  margin-bottom: 15px;
+}
+.footer-logo img {
+  width: 80px;
+}
+
+.copyright p {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* --- Estilos de Formulário (Mantidos) --- */
+.form-container {
+  border: 1px solid #333;
+  padding: 30px;
+  margin-top: 20px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  background-color: #111;
+  border: 1px solid #333;
+  color: #fff;
+  font-family: "Space Mono", monospace;
+}
+.form-button {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #fff;
+  background-color: #000;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.form-link {
+  text-align: center;
+  margin-top: 20px;
+  display: block;
+}
+
+/* Mensagens de erro (Mantidas) */
+.error-message,
+.success-message {
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+.error-message {
+  border: 1px solid #f00;
+}
+.success-message {
+  border: 1px solid #0f0;
+}
+
+/* --- 6. Barra de Pesquisa (Overlay) --- */
+.search-overlay {
+  position: fixed; /* Fica por cima de todo o conteúdo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* Fundo preto semi-transparente */
+  z-index: 1000; /* Garante que fique na frente */
+  display: none; /* Começa oculta */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.search-overlay.visible {
+  display: flex; /* Torna visível */
+}
+
+.search-overlay .close-search-btn {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 3rem;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.search-overlay .search-form {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+}
+
+.search-overlay .search-form input {
+  flex-grow: 1; /* Ocupa o máximo de espaço */
+  font-size: 1.5rem;
+  padding: 15px;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+}
+
+.search-overlay .search-form button {
+  font-size: 1.5rem;
+  padding: 15px 25px;
+  border: 2px solid #fff;
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+}
+
+/* --- 7. Página de Contato --- */
+.contact-page {
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.contact-header p {
+  font-size: 1.1rem;
+  color: #aaa;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Coluna de info menor que a do form */
+  gap: 40px;
+  border-top: 1px solid #333;
+  padding-top: 2rem;
+}
+
+.contact-info h3 {
+  margin-bottom: 1.5rem;
+}
+.contact-info p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
