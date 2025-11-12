@@ -360,3 +360,188 @@ footer {
   margin-bottom: 1rem;
   line-height: 1.6;
 }
+
+/* --- Media Queries para Responsividade --- */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px; /* Menos preenchimento lateral em telas menores */
+  }
+
+  /* Header */
+  header {
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha */
+    justify-content: center; /* Centraliza itens */
+    padding: 15px 0;
+  }
+
+  .header-left,
+  .header-right,
+  .header-center {
+    flex: none; /* Remove flex-grow para controle manual */
+    width: 100%; /* Ocupa toda a largura */
+    text-align: center;
+    margin-bottom: 10px; /* Espaçamento entre as seções do header */
+  }
+
+  .header-left {
+    order: 1; /* Ordem para o ícone de busca */
+    text-align: left;
+  }
+
+  .header-center {
+    order: 2; /* Ordem para o logo */
+    margin-bottom: 0; /* Remove margem extra */
+  }
+
+  .header-right {
+    order: 3; /* Ordem para os ícones de usuário/carrinho */
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px; /* Reduz o gap */
+  }
+
+  .site-logo img {
+    max-width: 100px; /* Reduz o tamanho do logo */
+  }
+
+  .welcome-message {
+    display: none; /* Esconde a mensagem de boas-vindas em telas pequenas */
+  }
+
+  /* Main Layout */
+  .main-layout {
+    grid-template-columns: 1fr; /* Uma única coluna para sidebar e produtos */
+    gap: 30px;
+    margin-top: 20px;
+  }
+
+  /* Sidebar */
+  .sidebar-nav {
+    width: 100%; /* Ocupa toda a largura */
+    text-align: center; /* Centraliza o texto da sidebar */
+    border-bottom: 1px solid #333; /* Adiciona uma borda para separar */
+    padding-bottom: 20px;
+  }
+
+  .sidebar-nav h3 {
+    margin-bottom: 10px;
+  }
+
+  .sidebar-nav ul {
+    display: flex; /* Transforma a lista em flexbox */
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha */
+    justify-content: center; /* Centraliza os itens */
+    gap: 10px; /* Espaçamento entre os itens */
+  }
+
+  .sidebar-nav ul li {
+    margin-bottom: 0; /* Remove margem vertical */
+  }
+
+  .sidebar-nav .submenu {
+    padding-left: 0; /* Remove indentação do submenu */
+    margin-top: 5px;
+    width: 100%; /* Ocupa toda a largura */
+    text-align: center;
+  }
+
+  .sidebar-nav .submenu ul {
+    flex-direction: column; /* Submenu em coluna */
+    align-items: center;
+  }
+
+  /* Product Grid */
+  .product-grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(150px, 1fr)
+    ); /* 2 colunas flexíveis */
+    gap: 10px;
+  }
+
+  .product-card img {
+    height: 150px; /* Ajusta a altura da imagem do produto */
+  }
+
+  /* Footer */
+  .newsletter-form input {
+    width: 100%; /* Input do newsletter ocupa toda a largura */
+    max-width: 300px; /* Mantém um max-width razoável */
+  }
+
+  .footer-socials {
+    flex-wrap: wrap; /* Permite que os ícones sociais quebrem a linha */
+    gap: 15px;
+  }
+
+  /* Form Containers */
+  .form-container {
+    padding: 20px;
+    margin-top: 15px;
+    max-width: 90%; /* Ajusta a largura máxima para telas menores */
+  }
+
+  /* Contact Page */
+  .contact-layout {
+    grid-template-columns: 1fr; /* Uma única coluna para informações e formulário */
+    gap: 30px;
+    padding-top: 1.5rem;
+  }
+
+  .contact-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .contact-header p {
+    font-size: 1rem;
+  }
+
+  /* Search Overlay */
+  .search-overlay .close-search-btn {
+    top: 15px;
+    right: 20px;
+    font-size: 2.5rem;
+  }
+
+  .search-overlay .search-form {
+    flex-direction: column; /* Empilha input e botão */
+    max-width: 90%;
+  }
+
+  .search-overlay .search-form input {
+    font-size: 1.2rem;
+    padding: 12px;
+    margin-bottom: 10px; /* Espaço entre input e botão */
+  }
+
+  .search-overlay .search-form button {
+    font-size: 1.2rem;
+    padding: 12px 20px;
+  }
+}
+
+/* Even smaller screens (e.g., ~480px and below) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .header-right {
+    justify-content: center; /* Centraliza os ícones do header-right */
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr; /* Uma única coluna para produtos em telas muito pequenas */
+  }
+
+  .product-card img {
+    height: 200px; /* Pode aumentar um pouco a altura para melhor visualização */
+  }
+
+  .sidebar-nav ul {
+    flex-direction: column; /* Empilha os itens da sidebar */
+    align-items: center;
+  }
+}
